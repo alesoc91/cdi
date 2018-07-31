@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/provaView', function (){
+Route::get('provaView', function (){
     return view('provaView');
+});
+
+Route::get('login', function (){
+    return view('login');
 });
