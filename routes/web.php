@@ -19,4 +19,7 @@ Route::get('provaView', function (){
     return view('provaView');
 });
 
-Route::get('/', 'LoginController@login');
+Route::get('/login', 'LoginController@login');
+
+Route::get('/controlPanel', 'ControlPanelController@controlPanel');
+
