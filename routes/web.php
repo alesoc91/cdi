@@ -23,3 +23,7 @@ Route::get('/login', 'LoginController@login');
 
 Route::get('/controlPanel', 'ControlPanelController@controlPanel');
 
+Route::get('/controlPanelProva', 'ControlPanelController@controlPanelProva');
+
+Route::get('/panel', 'ControlPanelController@panel');
+
