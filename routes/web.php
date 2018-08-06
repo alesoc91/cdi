@@ -27,3 +27,11 @@ Route::get('/controlPanelProva', 'ControlPanelController@controlPanelProva');
 
 Route::get('/panel', 'ControlPanelController@panel');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
