@@ -19,7 +19,7 @@ Route::get('provaView', function (){
     return view('provaView');
 });
 
-Route::get('/login', 'LoginController@login');
+
 
 Route::get('/controlPanel', 'ControlPanelController@controlPanel');
 
@@ -27,11 +27,21 @@ Route::get('/controlPanelProva', 'ControlPanelController@controlPanelProva');
 
 Route::get('/panel', 'ControlPanelController@panel');
 
+//
+//Auth::routes();
+//
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+Route::group(['middleware' => ['auth']], function () {
 
-Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/login_old', 'LoginController@login');
+    Route::resource('customers','CustomerController');
+
+
+
+});
