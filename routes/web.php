@@ -42,6 +42,4 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/login_old', 'LoginController@login');
     Route::resource('customers','CustomerController');
 
-
-
 });

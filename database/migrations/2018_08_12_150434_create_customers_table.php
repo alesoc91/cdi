@@ -17,11 +17,20 @@ class CreateCustomersTable extends Migration
             $table->increments('id');
             $table->string    ('name');
             $table->string    ('lastname');
-            $table->string    ('email') ->unique();
-            $table->integer   ('number')->unique();
-            $table->integer   ('birth_date');
-            $table->string    ('city');
-            $table->string    ('address');
+            $table->string    ('fiscal_code')->nullable();
+            //$table->string    ('gender_type_id');
+            $table->integer   ('birth_date')->nullable();
+            $table->string    ('city')->nullable();
+            $table->string    ('address')->nullable();
+            $table->string    ('email')->nullable();
+            $table->integer   ('primary_number')->nullable();
+            $table->integer   ('secondary_number')->nullable();
+            $table->string    ('note')->nullable();
+            //$table->integer   ('favourite_collaborator_id'); // TODO: da rivedere, forse è ridondante
+            //$table->integer   ('favourite_service_id'); // TODO: da rivedere, forse è ridondante
+            //$table->string    ('frequency_reservation'); // TODO: da rivedere, forse è ridondante
+            //$table->date      ('first_reservation'); // TODO: da rivedere, forse è ridondante
+            $table->boolean   ('from_online')->nullable();
             $table->timestamps();
         });
     }
