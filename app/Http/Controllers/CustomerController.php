@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\GenderType;
 
 class CustomerController extends Controller
 {
@@ -22,6 +23,10 @@ class CustomerController extends Controller
         $customer = new \App\Customer;
         $customer->name = $request->get('name');
         $customer->lastname = $request->get('lastname');
+        $customer->fiscal_code = $request->get('fiscalCode');
+        $customer->birth_date = $request->get('birthDate');
+        //$customer->gender_type_id = GenderType::where('code', $request->get('genderType'))->pluck('id');
+        $customer->gender_type_id = GenderType::where('code', $request->get('genderType'))->get('id');
         $customer->save();
 
         return redirect('customers')->with('success', 'Contatto aggiunto');

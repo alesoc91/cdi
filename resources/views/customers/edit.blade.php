@@ -19,13 +19,8 @@
             <div class="form-group col-md-4">
                 <label for="name">Nome:</label>
                 <input type="text" class="form-control" name="name" value="{{$customer->name}}">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
                 <label for="lastname">Cognome</label>
-                <input type="text" class="form-control" name="lastname" value="{{$customer->lastname}}">
+                <input type="text" class="form-control"  name="lastname" value="{{$customer->lastname}}">
             </div>
         </div>
         <div class="row">

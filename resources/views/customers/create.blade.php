@@ -9,12 +9,28 @@
                 <form method="post" action="{{url('customers')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
-                        <div class="col-md-12"></div>
                         <div class="form-group col-md-12">
-                            <label for="name">Nome:</label>
-                            <input type="text" class="form-control" name="name">
-                            <label for="lastname">Cognome:</label>
-                            <input type="text" class="form-control" name="lastname">
+                            <div>
+                                <label for="name">Nome:</label>
+                                <input type="text" class="form-control" name="name">
+                            </div>
+                            <div>
+                                <label for="lastname">Cognome:</label>
+                                <input type="text" class="form-control" name="lastname">
+                            </div>
+                            <div>
+                                <label for="fiscalCode">Codice Fiscale:</label>
+                                <input type="text" class="form-control" name="fiscalCode">
+                            </div>
+                            <div>
+                                <label for="birthDate">Data di nascita:</label>
+                                <input type="date" class="form-control" name="birthDate">
+                            </div>
+                            <div>
+                                <label for="genderType">Sesso:</label><br>
+                                <label><input type="radio" name="genderType" value="MALE"/>Uomo</label>
+                                <label><input type="radio" name="genderType" value="FEMALE"/>Donna</label>
+                            </div>
                         </div>
                     </div>
                     <div class="row">

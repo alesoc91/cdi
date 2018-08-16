@@ -15,18 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('provaView', function (){
-    return view('provaView');
-});
-
-
-
-Route::get('/controlPanel', 'ControlPanelController@controlPanel');
-
-Route::get('/controlPanelProva', 'ControlPanelController@controlPanelProva');
-
-Route::get('/panel', 'ControlPanelController@panel');
-
 //
 //Auth::routes();
 //
