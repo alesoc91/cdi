@@ -26,7 +26,7 @@ class CustomerController extends Controller
         $customer->fiscal_code = $request->get('fiscalCode');
         $customer->birth_date = $request->get('birthDate');
         //$customer->gender_type_id = GenderType::where('code', $request->get('genderType'))->pluck('id');
-        $customer->gender_type_id = GenderType::where('code', $request->get('genderType'))->get('id');
+        //$customer->gender_type_id = GenderType::where('code', $request->get('genderType'))->get('id');
         $customer->save();
 
         return redirect('customers')->with('success', 'Contatto aggiunto');
