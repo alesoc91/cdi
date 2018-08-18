@@ -18,7 +18,8 @@ class CreateCustomersTable extends Migration
             $table->string    ('name');
             $table->string    ('lastname');
             $table->string    ('fiscal_code')->nullable();
-            $table->integer   ('gender_type_id');
+            $table->string    ('gender');
+            //$table->integer   ('gender_type_id');
             $table->date      ('birth_date')->nullable();
             $table->string    ('city')->nullable();
             $table->string    ('address')->nullable();

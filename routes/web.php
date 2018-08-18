@@ -29,5 +29,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/login_old', 'LoginController@login');
     Route::resource('customers','CustomerController');
-
+    Route::get('customers/{id}/detail','CustomerController@detail');
 });

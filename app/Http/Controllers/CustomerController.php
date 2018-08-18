@@ -25,6 +25,12 @@ class CustomerController extends Controller
         $customer->lastname = $request->get('lastname');
         $customer->fiscal_code = $request->get('fiscalCode');
         $customer->birth_date = $request->get('birthDate');
+        $customer->gender = $request->get('gender');
+        $customer->address = $request->get('address');
+        $customer->city = $request->get('city');
+        $customer->email = $request->get('email');
+        $customer->primary_number = $request->get('primaryNumber');
+        $customer->secondary_number = $request->get('secondaryNumber');
         //$customer->gender_type_id = GenderType::where('code', $request->get('genderType'))->pluck('id');
         //$customer->gender_type_id = GenderType::where('code', $request->get('genderType'))->get('id');
         $customer->save();
@@ -33,16 +39,20 @@ class CustomerController extends Controller
     }
 
     public function edit($id){
-        $customer = new \App\Customer;
-
+        $customer = \App\Customer::find($id);
         return view('customers.edit', compact('customer','id'));
     }
 
+    public function detail($id){
+        $customer = \App\Customer::find($id);
+        return view('customers.detail', compact('customer','id'));
+    }
+
     public function update(Request $request, $id){
-        $passport= \App\Customer::find($id);
-        $passport->name=$request->get('name');
-        $passport->lastname=$request->get('lastname');
-        $passport->save();
+        $customer= \App\Customer::find($id);
+        $customer->name=$request->get('name');
+        $customer->lastname=$request->get('lastname');
+        $customer->save();
         return redirect('customers');
     }
 
