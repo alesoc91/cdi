@@ -28,6 +28,13 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/login_old', 'LoginController@login');
+
+    /*** Customers ***/
     Route::resource('customers','CustomerController');
     Route::get('customers/{id}/detail','CustomerController@detail');
+
+    /*** Collaborators ***/
+    Route::resource('collaborators','CollaboratorController');
+    Route::get('collaborators/{id}/detail','CollaboratorController@detail');
+
 });
