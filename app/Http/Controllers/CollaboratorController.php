@@ -33,16 +33,18 @@ class CollaboratorController extends Controller{
     }
 
     public function edit($id){
-        //$collaborator = \App\Collaborator::find($id);
-        $collaborator = DB::table('collaborators')->join('collaborator_roles', 'collaborators.role_id','=','collaborator_roles.id')->where('collaborators.id', $id)->get();
-        return view('collaborators.edit', compact('collaborator','id'));
+        $collaborator = \App\Collaborator::find($id);
+        $roles=\App\CollaboratorRole::all();
+        return view('collaborators.edit', compact('collaborator','roles'));
     }
 
     public function detail($id){
         //$collaborator = DB::table('collaborators')->join('collaborator_roles', 'collaborators.role_id','=','collaborator_roles.id')->where('collaborators.id', $id);
 
-        $collaborator = DB::table('collaborators')->join('collaborator_roles', 'collaborators.role_id','=','collaborator_roles.id')->where('collaborators.id', $id)
-            ->select('collaborators.*', 'collaborator_roles.code as code', 'collaborator_roles.description as description')->get();
+        $collaborator = DB::table('collaborators')->join('collaborator_roles', 'collaborators.role_id','=','collaborator_roles.id')
+            ->where('collaborators.id', $id)
+            ->select('collaborators.*', 'collaborator_roles.code as code', 'collaborator_roles.description as description')
+            ->get();
         //echo "<pre>"; print_r($collaborator); echo "</pre>";
         return view('collaborators.detail', compact('collaborator','id'));
     }
@@ -51,7 +53,9 @@ class CollaboratorController extends Controller{
         $collaborator= \App\Collaborator::find($id);
         $collaborator->name=$request->get('name');
         $collaborator->lastname=$request->get('lastname');
-        $collaborator->role_id = DB::table('collaborator_roles')->where('code', $request->get('role'))->value('id');
+        $collaborator->role_id = DB::table('collaborator_roles')
+            ->where('code', $request->get('role'))
+            ->value('id');
         $collaborator->save();
         return redirect('collaborators');
     }

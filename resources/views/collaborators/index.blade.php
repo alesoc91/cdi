@@ -21,11 +21,11 @@
                         <td>{{$collaborator->lastname}}</td>
                         <td>{{$collaborator->description}}</td>
                         <td><a href="{{action('CollaboratorController@detail', $collaborator->id)}}" class="btn btn-info">Info</a></td>
-                        <td><a href="{{action('CollaboratorController@edit', $collaborator->id)}}" class="btn btn-warning">Edit</a></td>
+                        <td><a href="{{action('CollaboratorController@edit', $collaborator->id)}}" class="btn btn-primary">Edit</a></td>
                         <td><form action="{{action('CollaboratorController@destroy', $collaborator->id)}}" method="post">
                             @csrf
                             <input name="_method" type="hidden" value="DELETE">
-                             <button class="btn btn-danger" type="submit">Delete</button></form>
+                            <button class="btn btn-danger" type="submit">Delete</button></form>
                          </td>
                     </tr>
                 @endforeach
