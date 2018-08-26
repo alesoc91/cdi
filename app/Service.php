@@ -104,4 +104,8 @@ class Service extends Model {
     public function category(){
         return $this->hasOne('App\ServiceCategory');
     }
+
+    public function collaborators(){
+        return $this->belongsToMany('App\Customer');
+    }
 }

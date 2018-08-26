@@ -46,8 +46,11 @@ class Collaborator extends Model{
         'name','lastname', 'role_id'
     ];
 
-    public function role()
-    {
+    public function role() {
         return $this->belongsTo('App\CollaboratorRole');
+    }
+
+    public function services(){
+        return $this->belongsToMany('App\Service');
     }
 }
