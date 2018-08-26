@@ -4,8 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAppointmentsTable extends Migration
-{
+class CreateCollaboratorServiceTable extends Migration {
     /**
      * Run the migrations.
      *
@@ -13,12 +12,11 @@ class CreateAppointmentsTable extends Migration
      */
     public function up() {
 
-        Schema::create('appointments', function (Blueprint $table) {
+        Schema::create('services', function (Blueprint $table) {
             $table->increments  ('id');
-            $table->date        ('date');
-            $table->integer     ('collaborator_service_id');
-            $table->boolean     ('validated');
-            $table->string      ('note');
+            $table->integer     ('collaborator_id');
+            $table->integer     ('service_id');
+            $table->boolean     ('online_visibility'); // TODO: forse da spostare su services (alcuni servizi non sono visibili online)
             $table->timestamps  ();
         });
     }
@@ -30,6 +28,6 @@ class CreateAppointmentsTable extends Migration
      */
     public function down() {
 
-        Schema::dropIfExists('appointments');
+        Schema::dropIfExists('collaborator_service');
     }
 }
