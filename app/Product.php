@@ -8,15 +8,18 @@ class Product extends Model {
 
     protected $table = 'products';
 
+    //protected $code; TODO: verificare che possa servire oppure no
     protected $description;
     protected $category_id;
     protected $quantity_available;
     protected $min_stock;
     protected $min_reorder;
-    protected $price_provider;
+    protected $price_supplier;
     protected $price_customer;
     protected $product_barcode;
     protected $product_code;
+    protected $note;
+
 
 
     /**
@@ -92,15 +95,15 @@ class Product extends Model {
     /**
      * @return mixed
      */
-    public function getPriceProvider(): float {
-        return $this->price_provider;
+    public function getPriceSupplier(): float {
+        return $this->price_supplier;
     }
 
     /**
-     * @param mixed $price_provider
+     * @param mixed $price_supplier
      */
-    public function setPriceProvider($price_provider): void {
-        $this->price_provider = $price_provider;
+    public function setPriceSupplier($price_supplier): void {
+        $this->price_supplier = $price_supplier;
     }
 
     /**
@@ -145,6 +148,26 @@ class Product extends Model {
         $this->product_code = $product_code;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getNote(): string {
+        return $this->note;
+    }
+
+    /**
+     * @param mixed $note
+     */
+    public function setNote($note): void {
+        $this->note = $note;
+    }
+
+
+
+
+    public function category() {
+        return $this->belongsTo('App\ProductCategory');
+    }
 
 
 
