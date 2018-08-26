@@ -17,11 +17,11 @@ class CreateFidelityCardsTable extends Migration
             $table->increments  ('id');
             $table->integer     ('customer_id');
             $table->boolean     ('f_solar_shower');
-            $table->string      ('n_solar_shower');
+            $table->integer     ('n_solar_shower');
             $table->boolean     ('f_trifacial');
-            $table->string      ('n_trifacial');
-            $table->boolean     ('f_esthetics');
-            $table->float       ('amount_estetichs');
+            $table->integer     ('n_trifacial');
+            $table->boolean     ('f_estetichs');
+            $table->integer     ('n_esthetics');
             $table->string      ('note');
             $table->timestamps  ();
         });

@@ -14,7 +14,7 @@ class FidelityCard extends Model {
     protected $f_trifacial;
     protected $n_trifacial;
     protected $f_esthetics;
-    protected $amount_estetichs;
+    protected $n_estetichs;
     protected $note;
 
     /**
@@ -118,15 +118,15 @@ class FidelityCard extends Model {
     /**
      * @return mixed
      */
-    public function getAmountEstetichs(): float {
-        return $this->amount_estetichs;
+    public function getNEstetichs(): integer {
+        return $this->n_estetichs;
     }
 
     /**
-     * @param mixed $amount_estetichs
+     * @param mixed $f_estetichs
      */
-    public function setAmountEstetichs($amount_estetichs): void {
-        $this->amount_estetichs = $amount_estetichs;
+    public function setNEstetichs($n_estetichs): void {
+        $this->n_estetichs = $n_estetichs;
     }
 
     public function customer() {
