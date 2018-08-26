@@ -19,7 +19,8 @@ class Product extends Model {
     protected $product_barcode;
     protected $product_code;
     protected $note;
-
+    protected $brand;
+    protected $supplier_id;
 
 
     /**
@@ -162,6 +163,35 @@ class Product extends Model {
         $this->note = $note;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getBrand(): string {
+        return $this->brand;
+    }
+
+    /**
+     * @param mixed $brand
+     */
+    public function setBrand($brand): void {
+        $this->brand = $brand;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSupplierId(): int {
+        return $this->supplier_id;
+    }
+
+    /**
+     * @param mixed $supplier_id
+     */
+    public function setSupplierId($supplier_id): void {
+        $this->supplier_id = $supplier_id;
+    }
+
+
 
 
 
@@ -169,7 +199,8 @@ class Product extends Model {
         return $this->belongsTo('App\ProductCategory');
     }
 
-
-
+    public function supplier() {
+        return $this->belongsTo('App\Supplier');
+    }
 
 }

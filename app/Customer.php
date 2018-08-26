@@ -210,5 +210,8 @@ class Customer extends Model{
     }
 
 
+    public function promotions(){
+        return $this->hasMany('App\Promotion');
+    }
 
 }

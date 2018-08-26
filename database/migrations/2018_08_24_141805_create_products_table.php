@@ -17,14 +17,16 @@ class CreateProductsTable extends Migration {
             $table->string      ('code'); // TODO: controllare, forse non necessario
             $table->string      ('description');
             $table->integer     ('category_id');
-            $table->integer     ('quantity');
+            $table->integer     ('quantity_available');
             $table->integer     ('min_stock');
             $table->integer     ('min_reorder');
-            $table->float       ('price_provider');
+            $table->float       ('price_supplier');
             $table->float       ('price_customer');
             $table->string      ('product_barcode');
             $table->string      ('product_code');
             $table->string      ('note');
+            $table->string      ('brand');
+            $table->integer     ('supplier_id');
             $table->timestamps();
         });
     }
@@ -34,8 +36,7 @@ class CreateProductsTable extends Migration {
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('products');
     }
 }
