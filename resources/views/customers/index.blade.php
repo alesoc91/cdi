@@ -2,7 +2,8 @@
 
 @section('content')
 
-    <div class="container">
+        <h1 class="title">Clienti</h1>
+        <hr>
         <div id="newCustomer" class="row">
             <td><a href="{{action('CustomerController@create')}}" class="btn btn-primary">Nuovo Contatto</a></td>
         </div>
@@ -35,7 +36,6 @@
                 </tbody>
             </table>
         </div>
-    </div>
 
 
 @endsection

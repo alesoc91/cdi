@@ -1,0 +1,22 @@
+#page-wrapper{
+    padding-top: 10px;
+}
+
+.navbar-default{
+    background: #252A31;
+}
+
+.nav a {
+    color:#A8AAAD;
+}
+
+#wrapper{
+
+    background: #2e3436;
+}
+
+
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #2e3436;
+}
