@@ -12,9 +12,10 @@ class ServiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index() {
+        $services=\App\Service::all();
+
+        return view('services.index',compact('services'));
     }
 
     /**
@@ -22,9 +23,8 @@ class ServiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create() {
+        return view('services.create');
     }
 
     /**
@@ -33,9 +33,17 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        $service = new \App\Service;
+        $service->setCode($request->get('code'));
+        $service->setDescription($request->get('description'));
+        $service->setPrice($request->get('price'));
+        $service->setDuration($request->get(''));
+        $service->setCategoryId($request->get('categoryId'));
+        $service->setNote($request->get(''));
+        $service->save();
+
+        return redirect('services')->with('success', 'Servizio aggiunto');
     }
 
     /**

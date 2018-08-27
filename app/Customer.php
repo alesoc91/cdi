@@ -21,6 +21,7 @@ class Customer extends Model{
     protected $note;
     protected $from_online;
     protected $registration_date;
+    protected $facebook_id;
 
     /**
      * @return mixed
@@ -204,8 +205,24 @@ class Customer extends Model{
         $this->registration_date = $registration_date;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getFacebookId(): int {
+        return $this->facebook_id;
+    }
 
-    public function fideltyCard(){
+    /**
+     * @param mixed $facebook_id
+     */
+    public function setFacebookId($facebook_id): void {
+        $this->facebook_id = $facebook_id;
+    }
+
+
+
+
+    public function fidelityCard(){
         return $this->hasOne('App\FidelityCard');
     }
 
